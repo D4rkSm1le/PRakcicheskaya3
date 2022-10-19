@@ -1,69 +1,62 @@
-namespace Piano
+namespace prakcicheskaya3
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("привет мой дорогой друг, это пианино специально для тебя");
-            double[] defaultOctave = new double[10] { 16.35, 17.32, 18.35, 19.45, 20.60, 21.83, 23.12, 24.5, 25.96, 27.5 };
-            double[] UsingOctave = defaultOctave;
+            Console.WriteLine("привет мой дорогой друг, это пианино специально для тебя (O-P клавиши(Октавы через сочитание клавиш ctrl + f1-f5))");
+            double[] Octave = new double[10] { 32, 34, 36, 38, 41, 43, 46, 49, 51, 55 };
+            double[] Klavishi = Octave;
             bool nextCircle = true;
             while (nextCircle)
 
             {
                 ConsoleKeyInfo key = Console.ReadKey(true);
-
-                //Блок с Ф-кнопками и вывод звука
+                
                 switch (key.Key)
                 {
                     case ConsoleKey.Escape: nextCircle = false; break;
                     case ConsoleKey.F1:
-                        UsingOctave = OctaveChange(3, defaultOctave);
+                        Klavishi = OctaveChange(3, Octave);
                         break;
                     case ConsoleKey.F2:
-                        UsingOctave = OctaveChange(4, defaultOctave);
+                        Klavishi = OctaveChange(4, Octave);
                         break;
                     case ConsoleKey.F3:
-                        UsingOctave = OctaveChange(5, defaultOctave);
-                        break;
-                    case ConsoleKey.F4:
-                        UsingOctave = OctaveChange(6, defaultOctave);
+                        Klavishi = OctaveChange(5, Octave);
                         break;
                     case ConsoleKey.F5:
-                        UsingOctave = defaultOctave; UsingOctave = OctaveChange(7, defaultOctave);
-                        break;
-                    case ConsoleKey.F6:
-                        UsingOctave = defaultOctave; UsingOctave = OctaveChange(8, defaultOctave);
+                        Klavishi = Octave; Klavishi = OctaveChange(7, Octave);
                         break;
                     case ConsoleKey.Q:
-                        noteOutput(UsingOctave[0], 300);
+                        noteOutput(Klavishi[0], 300);
                         break;
                     case ConsoleKey.W:
-                        noteOutput(UsingOctave[1], 300);
+                        noteOutput(Klavishi[1], 300);
                         break;
                     case ConsoleKey.E:
-                        noteOutput(UsingOctave[2], 300);
+                        noteOutput(Klavishi[2], 300);
                         break;
                     case ConsoleKey.R:
-                        noteOutput(UsingOctave[3], 300);
+                        noteOutput(Klavishi[3], 300);
                         break;
                     case ConsoleKey.T:
-                        noteOutput(UsingOctave[4], 300);
+                        noteOutput(Klavishi[4], 300);
                         break;
                     case ConsoleKey.Y:
-                        noteOutput(UsingOctave[5], 300);
+                        noteOutput(Klavishi[5], 300);
                         break;
                     case ConsoleKey.U:
-                        noteOutput(UsingOctave[6], 300);
+                        noteOutput(Klavishi[6], 300);
                         break;
                     case ConsoleKey.I:
-                        noteOutput(UsingOctave[7], 300);
+                        noteOutput(Klavishi[7], 300);
                         break;
                     case ConsoleKey.O:
-                        noteOutput(UsingOctave[8], 300);
+                        noteOutput(Klavishi[8], 300);
                         break;
                     case ConsoleKey.P:
-                        noteOutput(UsingOctave[9], 300);
+                        noteOutput(Klavishi[9], 300);
                         break;
                 }
             }
