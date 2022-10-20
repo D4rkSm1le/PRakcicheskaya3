@@ -1,10 +1,14 @@
+using System;
+using System.Threading;
+
 namespace prakcicheskaya3
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("привет мой дорогой друг, это пианино специально для тебя (O-P клавиши(Октавы через сочитание клавиш ctrl + f1-f5))");
+            Console.WriteLine("Здравствуйт, это пианино специально для вас  " +
+                "(O-I клавиши(Октавы через сочитание клавиш ctrl + f1-f4))");
             double[] Octave = new double[10] { 32, 34, 36, 38, 41, 43, 46, 49, 51, 55 };
             double[] Klavishi = Octave;
             bool nextCircle = true;
@@ -15,48 +19,78 @@ namespace prakcicheskaya3
                 
                 switch (key.Key)
                 {
-                    case ConsoleKey.Escape: nextCircle = false; break;
-                    case ConsoleKey.F1:
-                        Klavishi = OctaveChange(3, Octave);
+                    case ConsoleKey.Escape: nextCircle = false;
                         break;
+
+                    case ConsoleKey.F1:
+                        Klavishi = OctaveChange(2, Octave);
+                        Console.WriteLine("Octava 1");
+                        break;
+
                     case ConsoleKey.F2:
                         Klavishi = OctaveChange(4, Octave);
+                        Console.WriteLine("Octava 2");
                         break;
+
                     case ConsoleKey.F3:
                         Klavishi = OctaveChange(5, Octave);
+                        Console.WriteLine("Octava 3");
+
                         break;
-                    case ConsoleKey.F5:
-                        Klavishi = Octave; Klavishi = OctaveChange(7, Octave);
+                    case ConsoleKey.F4:
+                        Klavishi = OctaveChange(7, Octave);
+                        Console.WriteLine("Octava 4");
+                        
                         break;
                     case ConsoleKey.Q:
                         noteOutput(Klavishi[0], 300);
+                        Console.WriteLine("До");
+                        Console.Clear();
                         break;
+
                     case ConsoleKey.W:
                         noteOutput(Klavishi[1], 300);
+                        Console.WriteLine("Ре");
+                        Console.Clear();
                         break;
+
                     case ConsoleKey.E:
                         noteOutput(Klavishi[2], 300);
+                        Console.WriteLine("Ми");
+                        Console.Clear();
                         break;
+
                     case ConsoleKey.R:
                         noteOutput(Klavishi[3], 300);
+                        Console.WriteLine("Фа");
+                        Console.Clear();
                         break;
                     case ConsoleKey.T:
                         noteOutput(Klavishi[4], 300);
+                        Console.WriteLine("СоЛь");
+                        Console.Clear();
                         break;
+
                     case ConsoleKey.Y:
                         noteOutput(Klavishi[5], 300);
+                        Console.WriteLine("Ля");
+                        Console.Clear();
                         break;
+
                     case ConsoleKey.U:
                         noteOutput(Klavishi[6], 300);
+                        Console.WriteLine("Си");
+                        Console.Clear();
                         break;
+
                     case ConsoleKey.I:
                         noteOutput(Klavishi[7], 300);
+                        Console.WriteLine("Хз как нота называется");
+                        Console.Clear();
                         break;
-                    case ConsoleKey.O:
-                        noteOutput(Klavishi[8], 300);
-                        break;
-                    case ConsoleKey.P:
-                        noteOutput(Klavishi[9], 300);
+
+                    default:
+                        Console.WriteLine("Неправильный ввод!!!!!");
                         break;
                 }
             }
